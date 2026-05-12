@@ -1,0 +1,30 @@
+[package]
+name = "marrowpulse"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "marrowpulse"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build"]
+anchor-debug = []
+custom-heap = []
+custom-panic = []
+debug-logging = []
+
+
+[dependencies]
+anchor-lang = "0.32.1"
+light-sdk = { version = "0.23.0", features = ["anchor", "cpi-context"] }
+light-hasher = "5.0.0"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_os, values("solana"))'] }
